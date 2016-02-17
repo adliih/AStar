@@ -94,10 +94,12 @@ public class Driver {
             // Masukkan anak current ke open
             for (Edge e : current.edge) {
                 Node currentChild = e.tujuan;
-                if ((!closed.contains(currentChild)) || ((open.contains(currentChild)) && (currentChild.cost > current.cost + e.cost + currentChild.heuristic))) {
+                if (!closed.contains(currentChild)) {
                     // Not found child in closed list, not explored yet
                     currentChild.updateParent(current, open);
                     open.add(currentChild);
+                } else if (((open.contains(currentChild)) && (currentChild.cost > current.cost + e.cost + currentChild.heuristic))) {
+                    currentChild.updateParent(current, open);
                 }
             }
             closed.add(current);
@@ -106,17 +108,6 @@ public class Driver {
             System.out.println("\tClosed\t: " + closed);
             System.out.println();
         }
-
-//        if (current == null) {
-//            return null;
-//        } else {
-//            while (current != null) {
-//                result.add(0, current);
-//                current = current.parent;
-//            }
-//        }
-//        
-//        return result;
     }
 
     public static Node getBestNode(ArrayList<Node> open) {
