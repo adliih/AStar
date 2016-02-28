@@ -1,0 +1,4 @@
+Petunjuk Penjalanan Program
+1. buka terminal atau cmd
+2. ganti directory active pada terminal atau cmd ke folder tempat file ini berada (Menggunakan syntax: 'cd')
+3. jalankan 'java TugasAI1.Driver' pada command line anda
